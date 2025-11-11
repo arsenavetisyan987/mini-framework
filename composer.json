@@ -1,0 +1,19 @@
+{
+  "name": "user/mini-framework",
+  "description": "Mini framework with PHP",
+  "type": "project",
+  "require": {
+    "ext-pdo": "*",
+    "psr/log": "^3.0",
+    "monolog/monolog": "^3.0"
+  },
+  "scripts": {
+    "db-up" : "php scripts/bootstrap.php",
+    "migrate": "php scripts/migrate.php"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}

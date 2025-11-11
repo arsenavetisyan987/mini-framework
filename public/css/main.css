@@ -1,0 +1,78 @@
+body {
+    background-color: #12131a; /* dark background */
+    color: #dcdcdc; /* soft text */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Center container vertically and horizontally */
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px; /* padding for small screens */
+}
+
+/* Card for docs */
+.doc-card {
+    background-color: #1f1f28; /* slightly lighter dark */
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    max-width: 900px;
+    width: 100%;
+    text-align: center; /* center all text */
+}
+
+/* Headings */
+.h1, h1 {
+    color: #6ec6ff;
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+}
+.h2, h2 {
+    color: #8ad4ff;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+/* Paragraph */
+.p {
+    color: #dcdcdc;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* HR */
+.hr {
+    border: none;
+    border-top: 1px solid #333;
+    margin: 2rem 0;
+}
+
+/* Pre/code styling */
+.pre {
+    background-color: #2c2c35;
+    padding: 15px 20px;
+    border-left: 4px solid #6ec6ff;
+    border-radius: 8px;
+    font-size: 14px;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+    text-align: left; /* code aligned left for readability */
+}
+
+.code, .code-inline {
+    color: #f0f0f0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+}
+
+code.code-inline {
+    background-color: #2c2c35;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
