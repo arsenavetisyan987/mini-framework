@@ -9,7 +9,9 @@
   },
   "scripts": {
     "db-up" : "php scripts/bootstrap.php",
-    "migrate": "php scripts/migrate.php"
+    "migrate": "php scripts/migrate_create.php",
+    "migrate-up": "php scripts/migrate_up.php",
+    "migrate-down": "php scripts/migrate_down.php"
   },
   "autoload": {
     "psr-4": {

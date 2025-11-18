@@ -230,11 +230,75 @@
                     }
                 }
                 </code></pre>
-                <p class="p">To run migrations:</p>
+
+                <h3 class="h3">Creating a Migration</h3>
+                <p class="p">Use the <code class="code-inline">migrate</code> command to generate a new migration file. The class name will automatically match the migration name:</p>
+
                 <pre class="pre"><code class="code">
-                // Run all migrations
-                composer migrate
+                // Example: create a migration for users table
+                composer migrate create_users_table
+
+                // This creates a file like: 104500_create_users_table.php
+                // Class inside: CreateUsersTable
                 </code></pre>
+
+                <h3 class="h3">Running Migrations</h3>
+                <p class="p">You can run all pending migrations or a specific one:</p>
+
+                <pre class="pre"><code class="code">
+                // Run all new migrations
+                composer migrate-up
+
+                // Run a specific migration (by class name or part of filename)
+                composer migrate-up create_users_table
+                </code></pre>
+
+                <h3 class="h3">Rolling Back Migrations</h3>
+                <p class="p">You can rollback the last executed migration or a specific one:</p>
+
+                <pre class="pre"><code class="code">
+                // Rollback the last migration
+                composer migrate-down
+
+                // Rollback a specific migration by name
+                composer migrate-down -- CreateUsersTable
+                </code></pre>
+
+                <h3 class="h3">Adding Columns to Existing Tables</h3>
+                <p class="p">To modify an existing table (add columns, indexes, etc.), create a new migration. Example:</p>
+
+                <pre class="pre"><code class="code">
+                // Create migration file
+                composer migrate add_email_to_users1_table
+
+                // In the migration class
+                class AddEmailToUsers1Table implements MigrationInterface
+                {
+                    public static function up(): void
+                    {
+                        BaseModel::execute("ALTER TABLE users1 ADD COLUMN IF NOT EXISTS email VARCHAR(150) UNIQUE;");
+                    }
+
+                    public static function down(): void
+                    {
+                        BaseModel::execute("ALTER TABLE users1 DROP COLUMN IF EXISTS email;");
+                    }
+                }
+
+                // Run migration
+                composer migrate-up add_email_to_users_table
+
+                // Rollback
+                composer migrate-down add_email_to_users_table
+                </code></pre>
+
+                <h3 class="h3">Notes</h3>
+                <ul>
+                    <li>Use <code class="code-inline">up()</code> to apply changes, <code class="code-inline">down()</code> to rollback.</li>
+                    <li>Run each migration only once; new changes require a new migration.</li>
+                    <li>Migrations are tracked automatically in the database.</li>
+                </ul>
+
 
 
                 <hr class="hr">

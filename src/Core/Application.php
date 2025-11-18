@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Core;
 
-use App\routes;
+use App\Routes;
 use Exception;
 use Psr\Log\LoggerInterface;
 
